@@ -1,0 +1,46 @@
+VAR healed = false
+-> cave_mouth
+
+== cave_mouth ==
+You are at the entrance to a carve. {not bronze_sword_Pick_up: There is a bronze sword on the floor} The cave extends to the east and the west.
++ [Take the east tunnel] -> east_tunnel
++ [Take the west tunnel] -> west_tunnel
+* [Pick up the bronze sword] -> bronze_sword_Pick_up
+== east_tunnel ==
+You are in the east. You see amounts of green slimes, and you can't move.
++[Pick up the sword] -> kill_the_slimes
++ [Go back] -> cave_mouth
+
+== west_tunnel ==
++ [Go back ]-> cave_mouth
+You are in the west
+[Enter the hidden door] -> hiden_room
+
+=== bronze_sword_Pick_up ===
+You now have a sword. You can fight with slimes
+* [Go back] -> cave_mouth
+[Move further into the cave] -> hiden_room
+-> END
+
+
+== kill_the_slimes ==
+Slime drops 50 conins, and you earn 20 EXP
+-> END
+
+== hiden_room ==
+You find a room filled with coins.
+[Take the treasure] -> conis_collected
+[Go back] -> west_tunnel
+
+== conis_collected ==
+You get the coins. It can buy goods.
+[Return to the west_tunnel] -> west_tunnel
+
+== trap_room ==
+You enter a room filled with caltrops.
+[keep going] -> Get_Hured
+[leave the room] -> west_tunnel
+
+== Get_Hured ==
+You lose 100HP 
+{not healed: You succumb to your injuries and die. -> END}
